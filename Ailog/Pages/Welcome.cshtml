@@ -1,0 +1,19 @@
+﻿@page
+@model Ailog.Pages.Homepage.WelcomeModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LogOut</title>
+</head>
+<body>
+
+    <h1>Do you Logout?@Model.Username</h1>
+    <a asp-page="Welcome" asp-page-handler="Logout">Logout</a>
+
+</body>
+</html>

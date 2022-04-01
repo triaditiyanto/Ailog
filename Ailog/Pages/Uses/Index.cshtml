@@ -1,0 +1,46 @@
+﻿@page "{searchString?}"
+@model Ailog.Pages.Uses.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>User</h1>
+<button>
+    <a asp-page="Create">Tambah User</a>
+</button>
+<form style="margin-top:25px;">
+    <p>
+        Cari Nama: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Cari" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Use[0].Nama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Use[0].Alamat)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Use) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alamat)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

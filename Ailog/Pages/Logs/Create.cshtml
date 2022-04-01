@@ -1,0 +1,52 @@
+﻿@page
+@model Ailog.Pages.Logs.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Tambah Barang</h1>
+
+<h4></h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Log.Nama_Barang" class="control-label"></label>
+                <input asp-for="Log.Nama_Barang" class="form-control" />
+                <span asp-validation-for="Log.Nama_Barang" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Log.Waktu" class="control-label"></label>
+                <input asp-for="Log.Waktu" class="form-control" />
+                <span asp-validation-for="Log.Waktu" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Log.Jenis_Barang" class="control-label"></label>
+                <input asp-for="Log.Jenis_Barang" class="form-control" />
+                <span asp-validation-for="Log.Jenis_Barang" class="text-danger"></span>
+            </div>
+            <br />
+             <div class="form-group">
+                <label asp-for="Log.Status" class="control-label"></label>
+                <input asp-for="Log.Status" class="form-control" />
+                <span asp-validation-for="Log.Status" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

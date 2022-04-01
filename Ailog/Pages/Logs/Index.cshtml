@@ -1,0 +1,62 @@
+﻿@page "{searchString?}"
+@model Ailog.Pages.Logs.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Barang</h1>
+
+<button>
+    <a asp-page="Create">Tambah</a>
+</button>
+<form style="margin-top:25px;">
+    <p>
+        Cari Barang: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Cari" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Log[0].Nama_Barang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Log[0].Waktu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Log[0].Jenis_Barang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Log[0].Status)
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Log) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nama_Barang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Waktu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Jenis_Barang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
